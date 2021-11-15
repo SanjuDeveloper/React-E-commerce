@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Button from 'react-bootstrap/Button';
 import Header from './Header';
-import {BrowserRouter,Route,Routes} from 'react-router-dom';
+import { Routes , Route } from 'react-router-dom'
 import Login from './Login';
 import Register from './Register';
 import Addproduct from './Addproduct';
@@ -11,14 +11,15 @@ import EditProduct from './EditProduct';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
        <Header />
-       <Routes> 
-       <Route path="login">
-        <Login />
-       </Route>
-       </Routes>
-       </BrowserRouter>    
+      <Routes>      
+       <Route path='/home' element={<Addproduct/>} />
+       <Route path='/add' element={<Addproduct/>} />
+       <Route path='/update' element={<EditProduct/>} />
+       <Route path='/login' element={<Login/>} />
+       <Route path='/register' element={<Register/>} />
+      </Routes>  
+
     </div>
   );
 }

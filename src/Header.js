@@ -7,12 +7,12 @@ function Header()
 		<div>
 			 <Navbar bg="dark" variant="dark">
     <Container>
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Navbar.Brand >Navbar</Navbar.Brand>
     <Nav className="me-auto Navbar_wraper">
-      <Link to="home" >HOME</Link>
-      <Link to="add" >Add Product</Link>
+      <Link to="/home" >HOME</Link>
+      <Link to="/add" >Add Product</Link>
       <Link to="update" >Update Product</Link>
-      <Link to="login" >Login</Link>
+      <Link to="/login" >Login</Link>
       <Link to="register" >Register</Link>
     </Nav>
     </Container>
