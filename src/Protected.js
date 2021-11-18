@@ -1,8 +1,9 @@
-import react,{useState,useEffect} from 'react';
+import react,{useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
-import Header from './Header';
-function Login()
+
+function Login(props)
 {
+    let component = props.component
 	const navigate=useNavigate();
 	useEffect(()=>{
 		if(localStorage.getItem('user-info')){
@@ -12,8 +13,7 @@ function Login()
 	return(
 
 		<>
-			<Header />
-			<h1>Login Page</h1>
+			<component />			
 		</>
 	)
 }
