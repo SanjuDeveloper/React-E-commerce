@@ -6,7 +6,7 @@ function Login()
 	const navigate=useNavigate();
 	useEffect(()=>{
 		if(localStorage.getItem('user-info')){
-			navigate('/add')
+			navigate('/add')	
 		}
 	},[])
 	return(

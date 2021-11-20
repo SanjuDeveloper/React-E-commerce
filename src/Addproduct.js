@@ -4,11 +4,6 @@ import react,{useEffect} from 'react';
 function AddProduct()
 {
 	const navigate=useNavigate();
-	useEffect(()=>{
-		if(! localStorage.getItem('user-info')){
-			navigate('/login')
-		}
-	},[])
 	return(
 
 		<>

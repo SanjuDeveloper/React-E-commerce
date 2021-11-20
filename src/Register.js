@@ -9,7 +9,7 @@ function Register()
 	const navigate=useNavigate();
 	useEffect(()=>{
 		if(localStorage.getItem('user-info')){
-			navigate('/add')
+			navigate('/add')	
 		}
 	},[])
 

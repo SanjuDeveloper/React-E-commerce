@@ -1,20 +1,38 @@
 import react,{useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
+import Login from './Login';
+import Register from './Register';
+import Addproduct from './Addproduct';
+import EditProduct from './EditProduct';
 
-function Login(props)
+function Protected(props)
 {
-    let component = props.component
+	//let component = props.component
+	let compFromProp = props.compRefr
+	let compReturn;
 	const navigate=useNavigate();
 	useEffect(()=>{
-		if(localStorage.getItem('user-info')){
-			navigate('/add')
+		if(!localStorage.getItem('user-info')){
+			navigate('/login')	
 		}
 	},[])
+
+	if(compFromProp === "login"){
+		compReturn = <Login />
+	}else if(compFromProp == "Addproduct"){
+		compReturn = <Addproduct />
+	}else if(compFromProp === "EditProduct"){
+		compReturn = <EditProduct />
+	}else if(compFromProp === "Register"){
+		compReturn = <Register />
+	}
 	return(
 
-		<>
-			<component />			
-		</>
+		compReturn
+
+		// <>
+		// 	<component />			
+		// </>
 	)
 }
-export default Login
+export default Protected

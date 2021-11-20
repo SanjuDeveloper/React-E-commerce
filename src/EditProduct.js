@@ -4,11 +4,6 @@ import Header from './Header';
 function EditProduct()
 {
 	const navigate=useNavigate();
-	useEffect(()=>{
-		if(! localStorage.getItem('user-info')){
-			navigate('/login')
-		}
-	},[])
 	return(
 		<div>
 			<Header />
