@@ -36,7 +36,7 @@ function AddProduct()
 		<>		  
 		   <Header />
 			<div className="col-sm-6 offset-sm-3">
-				<h1>User Sign up Page</h1>
+				<h1>Add Product</h1>
 				<br />
 				<input type="text" onChange={(e)=>setName(e.target.value)} placeholder="Enter product name" className="form-control"></input>
 				<br />

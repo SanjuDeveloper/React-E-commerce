@@ -4,6 +4,7 @@ import Login from './Login';
 import Register from './Register';
 import Addproduct from './Addproduct';
 import EditProduct from './EditProduct';
+import ProductList from './ProductList'
 
 function Protected(props)
 {
@@ -25,6 +26,8 @@ function Protected(props)
 		compReturn = <EditProduct />
 	}else if(compFromProp === "Register"){
 		compReturn = <Register />
+	}else if(compFromProp === "ProductList"){
+		compReturn = <ProductList />
 	}
 	return(
 
