@@ -41,9 +41,9 @@ function Login()
 
 			<h1>Login Page</h1>
 			<br />
-			<input type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" className="form-control"></input>
+			<input type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" className="form-control" required></input>
 			<br />
-			<input type="text" onChange={(e)=>setPassword(e.target.value) }  placeholder="Enter password" className="form-control"></input>
+			<input type="text" onChange={(e)=>setPassword(e.target.value) }  placeholder="Enter password" className="form-control" required></input>
 			<br />
 				
 			<button onClick={login} class="btn btn-success">Login</button>

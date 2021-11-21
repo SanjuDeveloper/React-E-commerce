@@ -2,17 +2,35 @@ import Header from './Header';
 import { useNavigate } from 'react-router-dom';
 import react, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table'
+import { confirm } from "react-confirm-box";
 function ProductList() {
     const[data,setData] = useState([]);
 
-    useEffect(async () => {
+    useEffect(() => {
+        getProduct();
+
+    }, [])
+   // console.warn("data",data);
+
+   async function delteProduct(id)
+    {
+        const result = await confirm("Are you sure?");
+        if(result){
+            let del = await fetch('http://localhost:8000/api/deleteproduct/'+id,{
+                method:'DELETE'
+            });
+            del=del.json();
+           getProduct();
+        }
+    }
+
+    async function getProduct()
+    {
         let products = await fetch('http://localhost:8000/api/getproduct');
         products = await products.json();
         setData(products);
-
-    }, [])
-    console.warn("data",data);
-    let productCount=1;
+    }
+   
     return (
 
         <>
@@ -36,16 +54,16 @@ function ProductList() {
                     <tbody>
                         {
                             
-                            data.map((item)=>
+                            data.map((item,i)=>
                             <tr>
-                                <td>{productCount}</td>
+                                <td>{i+1}</td>
                                 <td>{item.id}</td>
                                 <td>{item.name}</td>
                                 <td>{item.price}</td>
                                 <td>{item.quantity}</td>                           
                                 <td>{item.description}</td>
                                 <td><img style={{width:100}} src={"http://localhost:8000/"+item.image} /></td>
-                                <td><button className="btn btn-danger">Delete</button></td>
+                                <td><button onClick={()=>{delteProduct(item.id)}} className="btn btn-danger">Delete</button></td>
                                 <td><button className="btn btn-primary">Edit</button></td>
                             </tr>                     
                             )
