@@ -26,7 +26,7 @@ function AddProduct()
 
 		});
 		alert("product added successfully");
-		navigate('/update');
+		navigate('/');
 
 
 
