@@ -1,6 +1,6 @@
 import react,{useState,useEffect} from 'react';
-import {useNavigate} from 'react-router-dom';
-import Header from './Header';
+import { Link, useNavigate } from 'react-router-dom'
+
 function Login()
 {
 	const navigate=useNavigate();
@@ -9,7 +9,7 @@ function Login()
 
 	useEffect(()=>{
 		if(localStorage.getItem('user-info')){
-			navigate('/')	
+			navigate('/ProductList')	
 		}
 	},[])
 
@@ -29,25 +29,25 @@ function Login()
 		result=await result.json();
 		//console.warn(result);
 		localStorage.setItem("user-info",JSON.stringify(result));
-		navigate('/');
+		navigate('/ProductList');
 		
 
 	}
 	return(
+		<>		
+			<div className="modal">
 
-		<>
-			<Header />
-			<div className="col-sm-6 offset-sm-3">
-
-			<h1>Login Page</h1>
-			<br />
-			<input type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" className="form-control" required></input>
-			<br />
-			<input type="text" onChange={(e)=>setPassword(e.target.value) }  placeholder="Enter password" className="form-control" required></input>
-			<br />
-				
-			<button onClick={login} class="btn btn-success">Login</button>
-
+				<h1>Login Page</h1>
+				<br />
+				<div className="col-sm-6 offset-sm-3">
+					<input type="text" onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" className=" container form-control" required></input>
+					<br />
+					<input type="text" onChange={(e)=>setPassword(e.target.value) }  placeholder="Enter password" className="container form-control" required></input>
+					<br />
+						
+					<button onClick={login} class="btn btn-success">Login</button>&nbsp;&nbsp;
+					<Link to="/register" ><button class="btn btn-primary">Sign up</button></Link>
+				</div>
 			</div>			
 		</>
 	)

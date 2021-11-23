@@ -9,11 +9,11 @@ function App() {
 
       <Routes>
         <Route path='/home' element={<Protected compRefr="login" />} />        
-        <Route path='/login' element={< Protected compRefr="login" />} />
+        <Route path='/' element={< Protected compRefr="login" />} />
         <Route path='/add' element={< Protected compRefr="Addproduct" />} />
-        <Route path='/update' element={< Protected compRefr="EditProduct" />} />
+        <Route path='/update/:id' element={< Protected compRefr="EditProduct" />} />
         <Route path='/register' element={< Protected compRefr="Register" />} />
-        <Route path="/" element={<Protected compRefr="ProductList" />} />
+        <Route path="/ProductList" element={<Protected compRefr="ProductList" />} />
       </Routes>
 
     </div>

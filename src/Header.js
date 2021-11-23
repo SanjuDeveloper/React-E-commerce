@@ -1,13 +1,13 @@
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom'
-import react, { useEffect } from 'react';
+//import react, { useEffect } from 'react';
 
 function Header() {
   const navigate = useNavigate();
   const loginUser = JSON.parse(localStorage.getItem("user-info"));
   function logOut() {
     localStorage.clear();
-    navigate('/login')
+    navigate('/')
   }
   return (
 
@@ -20,13 +20,12 @@ function Header() {
             {
               localStorage.getItem('user-info') ?
                 <>
-                  <Link to="/add" >Add Product</Link>
-                  <Link to="/update" >Update Product</Link>
-                    <Link to="/">Product List</Link>
+                  <Link to="/add" >Add Product</Link>                  
+                  <Link to="/ProductList">Product List</Link>
                 </>
                 :
                 <>
-                  <Link to="/login" >Login</Link>
+                  <Link to="/" >Login</Link>
                   <Link to="/register" >Register</Link>
                 </>
             }

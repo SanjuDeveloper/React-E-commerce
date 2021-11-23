@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import react, { useState, useEffect } from 'react';
 import Table from 'react-bootstrap/Table'
 import { confirm } from "react-confirm-box";
+import {Link} from 'react-router-dom';
 function ProductList() {
     const[data,setData] = useState([]);
 
@@ -64,7 +65,7 @@ function ProductList() {
                                 <td>{item.description}</td>
                                 <td><img style={{width:100}} src={"http://localhost:8000/"+item.image} /></td>
                                 <td><button onClick={()=>{delteProduct(item.id)}} className="btn btn-danger">Delete</button></td>
-                                <td><button className="btn btn-primary">Edit</button></td>
+                                <td><Link to={"/update/"+item.id} ><button className="btn btn-primary">Edit</button></Link></td>
                             </tr>                     
                             )
                         }

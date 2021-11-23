@@ -14,7 +14,7 @@ function Protected(props)
 	const navigate=useNavigate();
 	useEffect(()=>{
 		if(!localStorage.getItem('user-info')){
-			navigate('/login')	
+			navigate('/')	
 		}
 	},[])
 
