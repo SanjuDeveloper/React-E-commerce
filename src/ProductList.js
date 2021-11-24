@@ -64,7 +64,7 @@ function ProductList() {
                     </thead>
                     <tbody>
                         {
-                            
+                            data.length>0?
                             data.map((item,i)=>
                             <tr>
                                 <td>{i+1}</td>
@@ -78,6 +78,8 @@ function ProductList() {
                                 <td><Link to={"/update/"+item.id} ><button className="btn btn-primary">Edit</button></Link></td>
                             </tr>                     
                             )
+                            :
+                            <tr className="col-sm-8 text-danger align-center"> No Record found</tr>
                         }
                     
                     </tbody>
