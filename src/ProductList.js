@@ -31,13 +31,23 @@ function ProductList() {
         products = await products.json();
         setData(products);
     }
-   
+   async function searchProduct(key)
+   {
+        let searchData = await fetch('http://localhost:8000/api/searchproduct/'+key);
+        searchData = await searchData.json();
+        console.warn(searchData)
+        setData(searchData);
+   }
     return (
 
         <>
             <Header /><br />
             <div className="col-sm-10 offset-sm-1">
                 <h1> Product List</h1><br />
+                <div className="col-sm-6 offset-sm-3">
+                <input type="text" onChange={(e)=>{searchProduct(e.target.value)}} className="form-control" placeholder="Search product here...."></input><br />
+                </div>
+               
                 <Table  striped bordered hover>
                     <thead>
                         <tr>
